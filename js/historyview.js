@@ -1258,6 +1258,36 @@ define(['d3'], function() {
       this.renderTags();
     },
 
+    renameBranch: function(name) {
+      let branchIndex;
+
+      if (!name || name.trim() === '') {
+        throw new Error('You need to give a branch name.');
+      }
+
+      if (name === 'HEAD') {
+        throw new Error('You cannot name your branch "HEAD".');
+      }
+
+      if (this.branches.indexOf(name) > -1) {
+        throw new Error('Branch "' + name + '" already exists.');
+      }
+
+      let oldName = this.currentBranch;
+      branchIndex = this.branches.indexOf(oldName);
+      this.branches[branchIndex] = name;
+      this.currentBranch = name;
+
+      var commit = this.getCommit('head')
+      branchIndex = commit.tags.indexOf(oldName);
+
+      if (branchIndex > -1) {
+        commit.tags[branchIndex] = name;
+      }
+      this._setCurrentBranch(name)
+      this.renderTags();
+    },
+
     checkout: function(ref) {
       var commit = this.getCommit(ref);
 
