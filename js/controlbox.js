@@ -475,6 +475,10 @@ function(_yargs, d3, demos) {
 
     },
 
+    switch: function(args, opts) {
+      return this.checkout(args, opts)
+    },
+
     checkout: function(args, opts) {
       if (opts.b) {
         if (opts._[0]) {
