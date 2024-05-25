@@ -1,11 +1,24 @@
 ﻿Visualize Git
 =============
 
-Git is an amazingly powerful tool — and it can be amazingly confusing. Demystify Git commands with visualizations powered by D3. Give it a try at [http://git-school.github.io/visualizing-git/](http://git-school.github.io/visualizing-git/)!
+This is a fork of [Visualize Git](https://git-school.github.io/visualizing-git/) made just to fix/change a couple of things that were annoying me :)
 
-![By Git School](http://i.imgur.com/EiuyjJQ.png?1)
+List of modifications:
+- Changed default repo to 'main'
+- Added `git switch` command as an alias for `git checkout`
+- Added the `-m` parameter to `git branch` to rename branches
 
-[Visualize Git](http://git-school.github.io/visualizing-git/) illustrates what's going on underneath the hood when you use common Git operations. You'll see what exactly is happening to your commit graph. We aim to support all the most basic git operations, including interacting with remotes.
+This fork can be tested online at [https://cfinnberg.github.io/visualizing-git/](https://cfinnberg.github.io/visualizing-git/)
+
+In the long term, I aim to at some degree refactor the code to make it a little bit more modern (I'm not an experienced JS coder myself, but even I know that `var` is not the default way of declaring vars anymore). I would like to change the way branches are organized, so they try to maintain the same "levels" to give more clarity to the timeline (for example, main branch should be always the base line).
+
+---
+
+Git is an amazingly powerful tool — and it can be amazingly confusing. Demystify Git commands with visualizations powered by D3. Give it a try at [https://git-school.github.io/visualizing-git/](https://git-school.github.io/visualizing-git/)!
+
+![By Git School](https://i.imgur.com/EiuyjJQ.png?1)
+
+[Visualize Git](https://git-school.github.io/visualizing-git/) illustrates what's going on underneath the hood when you use common Git operations. You'll see what exactly is happening to your commit graph. We aim to support all the most basic git operations, including interacting with remotes.
 
 Here are some examples of the fun things you can do with it:
 
