@@ -477,7 +477,17 @@ define(['vendor/yargs-parser', 'd3', 'demos'],
             },
 
             switch: function (args, opts) {
-                return this.checkout(args, opts)
+                /* If '-c' switch, create first the branch */
+                if (opts.c) {
+                    if (opts._[0]) {
+                        this.branch(null, null, opts.c + ' ' + opts._[0])
+                    } else {
+                        this.branch(null, null, opts.c)
+                    }
+                }
+                var name = opts.c || opts._[0]
+                
+                return this.moveTo(name)
             },
 
             checkout: function (args, opts) {
@@ -490,7 +500,11 @@ define(['vendor/yargs-parser', 'd3', 'demos'],
                 }
 
                 var name = opts.b || opts._[0]
+                
+                return this.moveTo(name)
+            },
 
+            moveTo: function (name) {
                 this.transact(function () {
                     this.getRepoView().checkout(name);
                 }, function (before, after) {
