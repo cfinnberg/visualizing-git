@@ -237,6 +237,7 @@ define(['vendor/yargs-parser', 'd3', 'demos'],
                     this.info('Available Git Commands:')
                     this.info('`git branch`')
                     this.info('`git checkout`')
+                    this.info('`git switch`')
                     this.info('`git cherry_pick`')
                     this.info('`git commit`')
                     this.info('`git fetch`')
